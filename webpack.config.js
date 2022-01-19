@@ -3,11 +3,11 @@ var LodashModuleReplacementPlugin = require("lodash-webpack-plugin");
 
 module.exports = {
   entry: {
-    px4log: "./src/js4Log.js",
+    js4Log: "./src/js4Log.js",
     index: "./src/js4Log.js",
   },
   output: {
-    library: "nlog",
+    library: "js4Log",
     libraryExport: "default",
     libraryTarget: "umd",
     filename: "[name].js",

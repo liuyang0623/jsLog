@@ -6,6 +6,10 @@
     "test": "test",
     "build": "webpack --progress"
   },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:liuyang0623/jsLog.git"
+  },
   "keywords": [
     "log"
   ],

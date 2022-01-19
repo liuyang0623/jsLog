@@ -1,0 +1,547 @@
+<html>
+  <head> </head>
+  <body>
+    <div class="mainWrap ng-scope" ui-view="">
+      <meta charset="utf-8" class="ng-scope" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" class="ng-scope" />
+      <!-- <meta http-equiv="Expires" content="0" class="ng-scope">
+                    <meta http-equiv="Pragma" content="no-cache" class="ng-scope">
+                    <meta http-equiv="Cache-control" content="no-cache" class="ng-scope">
+                    <meta http-equiv="Cache" content="no-cache" class="ng-scope"> -->
+      <title class="ng-scope"></title>
+
+      <!-- uiView: -->
+      <div ui-view="" class="ng-scope">
+        <div id="Enter">我是Enter1444511</div>
+        <div id="Enter">我是Enter2</div>
+        <div id="Enter">我是Enter3</div>
+        <div class="mainContent ng-scope">
+          <div class="header">
+            <h4><span class="block"></span>资质审核列表</h4>
+          </div>
+          <div class="main_pager" ng-show="qualification.tableStatus == 2">
+            <ul
+              class="pagination-sm pagination ng-isolate-scope"
+              total-items="qualification.pageCount"
+              items-per-page="qualification.tablePage.size"
+              callback="qualification.pageSelect()"
+              page="qualification.tablePage"
+              max-size="5"
+            >
+              <li
+                class="pagination-first disabled"
+                ng-class="{disabled: noPrevious()}"
+              >
+                <a href="" ng-click="flipPage(1,0)" tabindex="-1">首页</a>
+              </li>
+              <li
+                class="pagination-prev disabled"
+                ng-class="{disabled: noPrevious()}"
+              >
+                <a href="" ng-click="flipPage(page.index-1,0)" tabindex="-1"
+                  >« 上一页</a
+                >
+              </li>
+              <!-- ngIf: pageShowList[0] > 1 --><!-- ngRepeat: p in pageShowList track by $index -->
+              <li
+                ng-repeat="p in pageShowList track by $index"
+                ng-class="{active: p==page.index}"
+                class="pagination-page ng-scope active"
+              >
+                <a
+                  href=""
+                  ng-click="selectPage(p)"
+                  ng-bind="p"
+                  class="ng-binding"
+                  >1</a
+                >
+              </li>
+              <!-- end ngRepeat: p in pageShowList track by $index -->
+              <li
+                ng-repeat="p in pageShowList track by $index"
+                ng-class="{active: p==page.index}"
+                class="pagination-page ng-scope"
+              >
+                <a
+                  href=""
+                  ng-click="selectPage(p)"
+                  ng-bind="p"
+                  class="ng-binding"
+                  >2</a
+                >
+              </li>
+              <!-- end ngRepeat: p in pageShowList track by $index -->
+              <li
+                ng-repeat="p in pageShowList track by $index"
+                ng-class="{active: p==page.index}"
+                class="pagination-page ng-scope"
+              >
+                <a
+                  href=""
+                  ng-click="selectPage(p)"
+                  ng-bind="p"
+                  class="ng-binding"
+                  >3</a
+                >
+              </li>
+              <!-- end ngRepeat: p in pageShowList track by $index -->
+              <li
+                ng-repeat="p in pageShowList track by $index"
+                ng-class="{active: p==page.index}"
+                class="pagination-page ng-scope"
+              >
+                <a
+                  href=""
+                  ng-click="selectPage(p)"
+                  ng-bind="p"
+                  class="ng-binding"
+                  >4</a
+                >
+              </li>
+              <!-- end ngRepeat: p in pageShowList track by $index -->
+              <li
+                ng-repeat="p in pageShowList track by $index"
+                ng-class="{active: p==page.index}"
+                class="pagination-page ng-scope"
+              >
+                <a
+                  href=""
+                  ng-click="selectPage(p)"
+                  ng-bind="p"
+                  class="ng-binding"
+                  >5</a
+                >
+              </li>
+              <!-- end ngRepeat: p in pageShowList track by $index --><!-- ngIf: pageShowList[4] < pageCount -->
+              <li
+                ng-if="pageShowList[4] < pageCount"
+                class="pagination-page ng-scope"
+              >
+                <a href="" ng-click="flipPage(pageShowList[4]+1,1)">...</a>
+              </li>
+              <!-- end ngIf: pageShowList[4] < pageCount -->
+              <li class="pagination-next" ng-class="{disabled: noNext()}">
+                <a href="" ng-click="flipPage(page.index+1,1)" tabindex="-1"
+                  >下一页 »</a
+                >
+              </li>
+              <li class="pagination-last" ng-class="{disabled: noNext()}">
+                <a href="" ng-click="flipPage(pageCount,1)" tabindex="-1"
+                  >尾页</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="main_pager" ng-show="qualification.tableStatus == 2">
+            <ul
+              class="pagination-sm pagination ng-isolate-scope"
+              total-items="qualification.pageCount"
+              items-per-page="qualification.tablePage.size"
+              callback="qualification.pageSelect()"
+              page="qualification.tablePage"
+              max-size="5"
+            >
+              <li
+                class="pagination-first disabled"
+                ng-class="{disabled: noPrevious()}"
+              >
+                <a href="" ng-click="flipPage(1,0)" tabindex="-1">首页</a>
+              </li>
+              <li
+                class="pagination-prev disabled"
+                ng-class="{disabled: noPrevious()}"
+              >
+                <a href="" ng-click="flipPage(page.index-1,0)" tabindex="-1"
+                  >« 上一页</a
+                >
+              </li>
+              <!-- ngIf: pageShowList[0] > 1 --><!-- ngRepeat: p in pageShowList track by $index -->
+              <li
+                ng-repeat="p in pageShowList track by $index"
+                ng-class="{active: p==page.index}"
+                class="pagination-page ng-scope active"
+              >
+                <a
+                  href=""
+                  ng-click="selectPage(p)"
+                  ng-bind="p"
+                  class="ng-binding"
+                  >1</a
+                >
+              </li>
+              <!-- end ngRepeat: p in pageShowList track by $index -->
+              <li
+                ng-repeat="p in pageShowList track by $index"
+                ng-class="{active: p==page.index}"
+                class="pagination-page ng-scope"
+              >
+                <a
+                  href=""
+                  ng-click="selectPage(p)"
+                  ng-bind="p"
+                  class="ng-binding"
+                  >2</a
+                >
+              </li>
+              <!-- end ngRepeat: p in pageShowList track by $index -->
+              <li
+                ng-repeat="p in pageShowList track by $index"
+                ng-class="{active: p==page.index}"
+                class="pagination-page ng-scope"
+              >
+                <a
+                  href=""
+                  ng-click="selectPage(p)"
+                  ng-bind="p"
+                  class="ng-binding"
+                  >3</a
+                >
+              </li>
+              <!-- end ngRepeat: p in pageShowList track by $index -->
+              <li
+                ng-repeat="p in pageShowList track by $index"
+                ng-class="{active: p==page.index}"
+                class="pagination-page ng-scope"
+              >
+                <a
+                  href=""
+                  ng-click="selectPage(p)"
+                  ng-bind="p"
+                  class="ng-binding"
+                  >4</a
+                >
+              </li>
+              <!-- end ngRepeat: p in pageShowList track by $index -->
+              <li
+                ng-repeat="p in pageShowList track by $index"
+                ng-class="{active: p==page.index}"
+                class="pagination-page ng-scope"
+              >
+                <a
+                  href=""
+                  ng-click="selectPage(p)"
+                  ng-bind="p"
+                  class="ng-binding"
+                  >5</a
+                >
+              </li>
+              <!-- end ngRepeat: p in pageShowList track by $index --><!-- ngIf: pageShowList[4] < pageCount -->
+              <li
+                ng-if="pageShowList[4] < pageCount"
+                class="pagination-page ng-scope"
+              >
+                <a href="" ng-click="flipPage(pageShowList[4]+1,1)">...</a>
+              </li>
+              <!-- end ngIf: pageShowList[4] < pageCount -->
+              <li class="pagination-next" ng-class="{disabled: noNext()}">
+                <a href="" ng-click="flipPage(page.index+1,1)" tabindex="-1"
+                  >下一页 »</a
+                >
+              </li>
+              <li class="pagination-last" ng-class="{disabled: noNext()}">
+                <a href="" ng-click="flipPage(pageCount,1)" tabindex="-1"
+                  >尾页</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="main_pager" ng-show="qualification.tableStatus == 2">
+            <ul
+              class="pagination-sm pagination ng-isolate-scope"
+              total-items="qualification.pageCount"
+              items-per-page="qualification.tablePage.size"
+              callback="qualification.pageSelect()"
+              page="qualification.tablePage"
+              max-size="5"
+            >
+              <li
+                class="pagination-first disabled"
+                ng-class="{disabled: noPrevious()}"
+              >
+                <a href="" ng-click="flipPage(1,0)" tabindex="-1">首页</a>
+              </li>
+              <li
+                class="pagination-prev disabled"
+                ng-class="{disabled: noPrevious()}"
+              >
+                <a href="" ng-click="flipPage(page.index-1,0)" tabindex="-1"
+                  >« 上一页</a
+                >
+              </li>
+              <!-- ngIf: pageShowList[0] > 1 --><!-- ngRepeat: p in pageShowList track by $index -->
+              <li
+                ng-repeat="p in pageShowList track by $index"
+                ng-class="{active: p==page.index}"
+                class="pagination-page ng-scope active"
+              >
+                <a
+                  href=""
+                  ng-click="selectPage(p)"
+                  ng-bind="p"
+                  class="ng-binding"
+                  >1</a
+                >
+              </li>
+              <!-- end ngRepeat: p in pageShowList track by $index -->
+              <li
+                ng-repeat="p in pageShowList track by $index"
+                ng-class="{active: p==page.index}"
+                class="pagination-page ng-scope"
+              >
+                <a
+                  href=""
+                  ng-click="selectPage(p)"
+                  ng-bind="p"
+                  class="ng-binding"
+                  >2</a
+                >
+              </li>
+              <!-- end ngRepeat: p in pageShowList track by $index -->
+              <li
+                ng-repeat="p in pageShowList track by $index"
+                ng-class="{active: p==page.index}"
+                class="pagination-page ng-scope"
+              >
+                <a
+                  href=""
+                  ng-click="selectPage(p)"
+                  ng-bind="p"
+                  class="ng-binding"
+                  >3</a
+                >
+              </li>
+              <!-- end ngRepeat: p in pageShowList track by $index -->
+              <li
+                ng-repeat="p in pageShowList track by $index"
+                ng-class="{active: p==page.index}"
+                class="pagination-page ng-scope"
+              >
+                <a
+                  href=""
+                  ng-click="selectPage(p)"
+                  ng-bind="p"
+                  class="ng-binding"
+                  >4</a
+                >
+              </li>
+              <!-- end ngRepeat: p in pageShowList track by $index -->
+              <li
+                ng-repeat="p in pageShowList track by $index"
+                ng-class="{active: p==page.index}"
+                class="pagination-page ng-scope"
+              >
+                <a
+                  href=""
+                  ng-click="selectPage(p)"
+                  ng-bind="p"
+                  class="ng-binding"
+                  >5</a
+                >
+              </li>
+              <!-- end ngRepeat: p in pageShowList track by $index --><!-- ngIf: pageShowList[4] < pageCount -->
+              <li
+                ng-if="pageShowList[4] < pageCount"
+                class="pagination-page ng-scope"
+              >
+                <a href="" ng-click="flipPage(pageShowList[4]+1,1)">...</a>
+              </li>
+              <!-- end ngIf: pageShowList[4] < pageCount -->
+              <li class="pagination-next" ng-class="{disabled: noNext()}">
+                <a href="" ng-click="flipPage(page.index+1,1)" tabindex="-1"
+                  >下一页 »</a
+                >
+              </li>
+              <li class="pagination-last" ng-class="{disabled: noNext()}">
+                <a href="" ng-click="flipPage(pageCount,1)" tabindex="-1"
+                  >尾页</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="main_pager" ng-show="qualification.tableStatus == 2">
+            <ul
+              class="pagination-sm pagination ng-isolate-scope"
+              total-items="qualification.pageCount"
+              items-per-page="qualification.tablePage.size"
+              callback="qualification.pageSelect()"
+              page="qualification.tablePage"
+              max-size="5"
+            >
+              <li
+                class="pagination-first disabled"
+                ng-class="{disabled: noPrevious()}"
+              >
+                <a href="" ng-click="flipPage(1,0)" tabindex="-1">首页</a>
+              </li>
+              <li
+                class="pagination-prev disabled"
+                ng-class="{disabled: noPrevious()}"
+              >
+                <a href="" ng-click="flipPage(page.index-1,0)" tabindex="-1"
+                  >« 上一页</a
+                >
+              </li>
+              <!-- ngIf: pageShowList[0] > 1 --><!-- ngRepeat: p in pageShowList track by $index -->
+              <li
+                ng-repeat="p in pageShowList track by $index"
+                ng-class="{active: p==page.index}"
+                class="pagination-page ng-scope active"
+              >
+                <a
+                  href=""
+                  ng-click="selectPage(p)"
+                  ng-bind="p"
+                  class="ng-binding"
+                  >1</a
+                >
+              </li>
+              <!-- end ngRepeat: p in pageShowList track by $index -->
+              <li
+                ng-repeat="p in pageShowList track by $index"
+                ng-class="{active: p==page.index}"
+                class="pagination-page ng-scope"
+              >
+                <a
+                  href=""
+                  ng-click="selectPage(p)"
+                  ng-bind="p"
+                  class="ng-binding"
+                  >2</a
+                >
+              </li>
+              <!-- end ngRepeat: p in pageShowList track by $index -->
+              <li
+                ng-repeat="p in pageShowList track by $index"
+                ng-class="{active: p==page.index}"
+                class="pagination-page ng-scope"
+              >
+                <a
+                  href=""
+                  ng-click="selectPage(p)"
+                  ng-bind="p"
+                  class="ng-binding"
+                  >3</a
+                >
+              </li>
+              <!-- end ngRepeat: p in pageShowList track by $index -->
+              <li
+                ng-repeat="p in pageShowList track by $index"
+                ng-class="{active: p==page.index}"
+                class="pagination-page ng-scope"
+              >
+                <a
+                  href=""
+                  ng-click="selectPage(p)"
+                  ng-bind="p"
+                  class="ng-binding"
+                  >4</a
+                >
+              </li>
+              <!-- end ngRepeat: p in pageShowList track by $index -->
+              <li
+                ng-repeat="p in pageShowList track by $index"
+                ng-class="{active: p==page.index}"
+                class="pagination-page ng-scope"
+              >
+                <a
+                  href=""
+                  ng-click="selectPage(p)"
+                  ng-bind="p"
+                  class="ng-binding"
+                  >5</a
+                >
+              </li>
+              <!-- end ngRepeat: p in pageShowList track by $index --><!-- ngIf: pageShowList[4] < pageCount -->
+              <li
+                ng-if="pageShowList[4] < pageCount"
+                class="pagination-page ng-scope"
+              >
+                <a href="" ng-click="flipPage(pageShowList[4]+1,1)">...</a>
+              </li>
+              <!-- end ngIf: pageShowList[4] < pageCount -->
+              <li class="pagination-next" ng-class="{disabled: noNext()}">
+                <a href="" ng-click="flipPage(page.index+1,1)" tabindex="-1"
+                  >下一页 »</a
+                >
+              </li>
+              <li class="pagination-last" ng-class="{disabled: noNext()}">
+                <a href="" ng-click="flipPage(pageCount,1)" tabindex="-1"
+                  >尾页</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.scattercdn.com/file/scatter-cdn/js/latest/scatterjs-core.min.js"></script>
+    <script src="https://cdn.scattercdn.com/file/scatter-cdn/js/latest/scatterjs-plugin-eosjs.min.js"></script>
+    <script src="https://cdn.bootcss.com/sizzle/2.3.4/sizzle.min.js"></script>
+    <script type="text/javascript" src="./dist/px4log.js?a=123"></script>
+    <script>
+      nlog.config({
+        protocol: "http:",
+        domain: "testnode.wdabuliu.com",
+        // domain:'172.20.2.101',
+        siteId: 99999,
+        // port:90,
+        // path:'hehehahi.mac',
+        getQuery: ["zmtm", "zmtl"],
+        cusParam: {
+          desl: "啊哈哈哈哈",
+          wtf: "我是自定义参数 @……￥#@SDAD发放",
+        },
+      });
+      nlog.addExtra({
+        hello: "name",
+        sp: "ololol",
+        wotmd: function (e) {
+          console.log(e);
+          return Math.random().toString(16).slice(2);
+        },
+      });
+      nlog.config({
+        cusParam: {
+          ddsad: {
+            wolegequ: 112,
+            wolegetian: 113,
+          },
+          desl: "12121212",
+          wtf: "我是自定义参数 @……￥#@SDAD发放",
+
+          hehehehe: function (e) {
+            console.log(e);
+            return Math.random().toString(16).slice(2);
+          },
+        },
+      });
+      // nlog.log({name:122})
+      // let s = nlog.log
+      document.getElementById("Enter").onclick = function (e) {
+        nlog.log({ _action: "dsdsddsd" });
+      };
+
+      // nlog.initLog('#Enter','click',{
+      //     _action:'sbbbbbb',
+      // })
+
+      nlog.initLog(window, "scroll", {
+        name: "滚动事件",
+        _action: "sb",
+      });
+      nlog.removeExtra(["hello", "sp"]);
+
+      // window.onscroll = function(e){
+      //     console.log(997733,e)
+      // }
+    </script>
+
+    <!-- <script type="text/javascript" src="./dist/log4sd.js"></script>    
+        <script>
+            nlog.initSite({
+                siteId:99999
+            })
+            nlog.initContactLog('.left','click')
+        </script>   -->
+  </body>
+</html>

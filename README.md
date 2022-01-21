@@ -33,9 +33,9 @@ npm install --save js4log
 ```
 
 ```javascript
-import z from 'js4Log/dist/js4Log'
+import js4Log from 'js4Log/dist/js4Log'
 
-z.config({
+js4Log.config({
   pageId: 123123  
   accessLog:false,
   loadLog:false,
@@ -51,7 +51,7 @@ z.config({
 
 ```javascript
 router.beforeEach((to, from, next) => {
-    z.config({
+    js4Log.config({
         accessLog:true,
         stayLog:true,
         loadLog:true,
@@ -64,7 +64,7 @@ router.beforeEach((to, from, next) => {
 
 ### 2.配置项
 
-#### zlog.config(Object)  
+#### js4Log.config(Object)  
 
 ##### 参数（Object）
 属性           | 类型       |  默认值      |  必填  | 说明

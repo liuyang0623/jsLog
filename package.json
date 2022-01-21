@@ -1,6 +1,6 @@
 {
   "name": "js4log",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "a log tool for website",
   "scripts": {
     "test": "test",

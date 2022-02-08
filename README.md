@@ -4,7 +4,8 @@
 版本号 | 发布日期    | 说明
 ----- | ---------- | ------
 1.0.0 | 2022.01.20 | 
-1.0.1 | 2019.01.21 | 修复事件委托bug
+1.0.1 | 2022.01.21 | 修复事件委托bug
+1.0.2 | 2022.02.08 | 新增ajax发送请求方式
 
 <br>
    
@@ -76,8 +77,9 @@ fingerKey     | String     |  'site_tp'  |  否   | 指纹追踪cookie的Key名
 defaultParams | Boolean    |  true       |  否   | 是否添加默认浏览器参数
 getQuery      | Array      |  [ ]        |  否   | 需要携带到日志参数中的的get参数数组 
 throttleTime  | Number     | 200         |  否   | 函数节流的响应延迟（毫秒）
+sendLogType   | String     | 'img'       |  否   | 打日志方式img：资源src无跨域问题（推荐）/ajax：ajax请求方式
 protocol      | String     | ''          |  否   | 日志接口协议
-domain        | String     | jz.union-wifi.com | 否 | 日志接口域名
+domain        | String     | '' | 否 | 日志接口域名
 port          | String     | ''          |  否   | 日志接口端口
 path          | String     |  hm.gif     |  否   | 日志资源路径，支持多级
 accessLog     | Boolean    |  true       |  否   | 是否开启access日志（PV）

@@ -14,12 +14,14 @@ const defaultConfigs = {
   scrollLog: true, // 开启window原生scrollLog
   stayLog: true, // 开启驻留日志stayLog
   loadLog: true, // 开启load时间Log
+  sendLogType: 'img', // 发送日志方式（img: 利用请求img src发送日志，无跨域风险（推荐）/ ajax：利用ajax发送日志）
   pagePath: "", // 页面路径
   getQuery: [], // url get参数
   protocol: "", // 日志协议
   domain: "", // 日志服务器域名
   port: "", // 端口
-  path: "hm.gif", // 请求资源path
+  path: "hm.gif", // 请求资源path或接口请求path
+  // interfacePath: "/", // ajax请求path（sendLogType为ajax时需要配置）
   throttleTime: 200, // 滚动日志节流时间
   cusParam: {}, // 自定义全局参数
 };
@@ -99,6 +101,7 @@ class Tracker {
           ? opts.port
           : this.configs.port,
       path: typeof opts.path === "string" ? opts.path : this.configs.path,
+      sType: typeof opts.sendLogType === "string" ? opts.sendLogType : this.configs.sendLogType
     };
     logger.config(logConfigs);
     return configs;
@@ -310,7 +313,7 @@ class Tracker {
       .catch((err) => {
         if (typeof fn === "function") fn(err);
       });
-    console.log("触发日志log");
+    console.log("触发日志");
   }
 
   /**

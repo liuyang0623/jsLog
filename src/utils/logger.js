@@ -1,6 +1,7 @@
 import qs from "qs";
 import base from "./base.js";
 // qs会处理所有的encode
+import { ajax } from "./net";
 
 const defaults = {
   domain: "testnode.wdabuliu.com", // 日志服务器
@@ -39,24 +40,38 @@ class Logger {
       }
       params.__uid = base.unique(); // 防止日志缓存
       params._ts = new Date().getTime(); // 携带时间戳
-      let urlParams = qs.stringify(params),
-        uid = params.__uid,
-        logImg;
-      logImg = this.globalContainer[uid] = logImg = new Image(1, 1);
-
-      logImg.onload = () => {
-        resolve({ code: 0, msg: "send success" });
-        logImg.onload = logImg.onerror = null;
-        delete this.globalContainer[uid];
-        logImg = null;
-      };
-      logImg.onerror = (e) => {
-        reject({ code: 1, error: e });
-        logImg.onload = logImg.onerror = null;
-        delete this.globalContainer[uid];
-        logImg = null;
-      };
-      logImg.src = `${this.baseImgUrl}?${urlParams}`;
+      if (this.options.sType === "img") {
+        let uid = params.__uid;
+        let logImg = (this.globalContainer[uid] = logImg = new Image(1, 1));
+        let urlParams = qs.stringify(params);
+        logImg.onload = () => {
+          resolve({ code: 0, msg: "send success" });
+          logImg.onload = logImg.onerror = null;
+          delete this.globalContainer[uid];
+          logImg = null;
+        };
+        logImg.onerror = (e) => {
+          reject({ code: 1, error: e });
+          logImg.onload = logImg.onerror = null;
+          delete this.globalContainer[uid];
+          logImg = null;
+        };
+        logImg.src = `${this.baseImgUrl}?${urlParams}`;
+      } else { // ajax
+        ajax({
+          url: this.baseImgUrl,
+          type: 'POST',
+          data: params,
+          dataType: 'json',
+          contentType: 'application/json',
+          success: function() {
+            resolve({ code: 0, msg: "ajax send success" })
+          },
+          error: function(e) {
+            reject({ code: 1, error: e })
+          }
+        })
+      }
     });
   }
   /**

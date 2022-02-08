@@ -477,22 +477,23 @@
     <script src="https://cdn.scattercdn.com/file/scatter-cdn/js/latest/scatterjs-core.min.js"></script>
     <script src="https://cdn.scattercdn.com/file/scatter-cdn/js/latest/scatterjs-plugin-eosjs.min.js"></script>
     <script src="https://cdn.bootcss.com/sizzle/2.3.4/sizzle.min.js"></script>
-    <script type="text/javascript" src="./dist/px4log.js?a=123"></script>
+    <script type="text/javascript" src="./dist/js4log.js?a=1234"></script>
     <script>
-      nlog.config({
+      js4Log.config({
         protocol: "http:",
         domain: "testnode.wdabuliu.com",
         // domain:'172.20.2.101',
         siteId: 99999,
         // port:90,
-        // path:'hehehahi.mac',
+        path:'log',
+        sendLogType: 'ajax',
         getQuery: ["zmtm", "zmtl"],
         cusParam: {
           desl: "啊哈哈哈哈",
           wtf: "我是自定义参数 @……￥#@SDAD发放",
         },
       });
-      nlog.addExtra({
+      js4Log.addExtra({
         hello: "name",
         sp: "ololol",
         wotmd: function (e) {
@@ -500,7 +501,7 @@
           return Math.random().toString(16).slice(2);
         },
       });
-      nlog.config({
+      js4Log.config({
         cusParam: {
           ddsad: {
             wolegequ: 112,
@@ -525,11 +526,11 @@
       //     _action:'sbbbbbb',
       // })
 
-      nlog.initLog(window, "scroll", {
+      js4Log.initLog(window, "scroll", {
         name: "滚动事件",
         _action: "sb",
       });
-      nlog.removeExtra(["hello", "sp"]);
+      js4Log.removeExtra(["hello", "sp"]);
 
       // window.onscroll = function(e){
       //     console.log(997733,e)

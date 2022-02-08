@@ -86,7 +86,7 @@ const getQuery = (name, query) => {
   if (typeof query !== "string" || typeof name !== "string") return null;
   let reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
   let r = query.match(reg);
-  return r === null ? null : unescape(r[2]);
+  return r === null ? null : decodeURIComponent(r[2]);
 };
 
 /**
